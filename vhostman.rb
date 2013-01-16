@@ -2,6 +2,7 @@
 
 HOSTS = "/etc/hosts"
 VHOSTSDIR = "/etc/apache2/extra/vhosts/" # needs trailing slash
+URLSUFFIX = ".local"
 
 def usage
   puts "\tUSAGE: sudo vhostman add [name] [webroot path]"
@@ -16,7 +17,7 @@ def check_args
     exit
   else
     @name = ARGV[1]
-    @domain = @name + '.local'
+    @domain = @name + URLSUFFIX
     @vhost_path = VHOSTSDIR + @domain + '.conf'
     @path = File.expand_path ARGV[2].chomp('/')
   end
