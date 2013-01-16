@@ -75,6 +75,7 @@ def add_to_hosts
   puts "\tAdding #{@name} to #{HOSTS}..."
   File.open(HOSTS, 'a') do |f|
     f.puts "127.0.0.1 #{@domain}"
+    f.puts "fe80::1%lo0 #{@domain}"
   end
 end
 
