@@ -2,7 +2,7 @@
 
 HOSTS = "/etc/hosts"
 VHOSTSDIR = "/etc/apache2/extra/vhosts/" # needs trailing slash
-URLSUFFIX = ".local"
+URLSUFFIX = ".dev"
 
 def usage
   puts "\tUSAGE: sudo vhostman add [name] [webroot path]"
