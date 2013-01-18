@@ -1,0 +1,11 @@
+{
+    "name": "jamiemill/osx-vhost-manager",
+    "description": "A little ruby script to quickly add apache vhosts for local web development",
+    "authors": [
+        {
+            "name": "Jamie Mill",
+            "email": "jamie.r.mill@gmail.com"
+        }
+    ],
+    "bin": [ "vhostman.rb" ]
+}
