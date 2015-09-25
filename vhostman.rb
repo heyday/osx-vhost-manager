@@ -58,12 +58,17 @@ end
 
 def make_vhost
   puts "\tMaking vhost file in #{@vhost_path}..."
+  _apacheVersion = /^Server version: Apache.([0-9.]*).*$/.match(`apachectl -v`)
   File.open(@vhost_path, 'a') do |f|
     f.puts "<Directory \"#{@path}\">"
     f.puts "  Options Indexes FollowSymLinks MultiViews"
     f.puts "  AllowOverride All"
-    f.puts "  Order allow,deny"
-    f.puts "  Allow from all"
+    if (_apacheVersion[1] =~ /^2\.2/)
+      f.puts "  Order allow,deny"
+      f.puts "  Allow from all"
+    else
+      f.puts "  Require all granted"
+    end
     f.puts "</Directory>"
     f.puts "<VirtualHost *:80>"
     f.puts "  DocumentRoot \"#{@path}\""
